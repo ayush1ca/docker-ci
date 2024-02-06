@@ -72,7 +72,7 @@ jobs:
       - name: Build Docker images
         run: docker build -t local .
       - name: Run tests
-        run: docker run local
+        run: docker run -d -p 4000:80 --name my_container local
 
   deploy:
     needs: test # Only deploy if tests pass
