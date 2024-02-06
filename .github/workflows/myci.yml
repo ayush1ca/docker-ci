@@ -79,11 +79,11 @@ jobs:
 
     - name: Tag Docker image
       run: |
-        docker tag local:latest docker.io/ayush1ca/local:latest
+        docker tag local:latest docker.io/ayushc06/new/local:latest
 
     - name: Push Docker image to Docker Hub
       run: |
-        docker push docker.io/ayush1ca/local:latest
+        docker push docker.io/ayushc06/new/local:latest
 
     - name: Check out code
       uses: actions/checkout@v3
