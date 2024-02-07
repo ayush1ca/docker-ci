@@ -12,18 +12,19 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Use Nginx to serve the built application
-# FROM nginx:alpine
+FROM nginx:alpine
 
 # Copy the build artifacts from the builder stage
-# COPY --from=builder /usr/src/app/build /usr/share/nginx/html
+COPY --from=builder /usr/src/app/build /usr/share/nginx/html
 
 # Copy your Nginx configuration file
-# COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/conf.d/nginx.conf
 
 # Expose port 80
-# EXPOSE 80
+EXPOSE 80
 
 # Start Nginx
-# CMD ["nginx", "-g", "daemon off;"]
-CMD [ "npm","Start" ]
+CMD ["nginx", "-g", "daemon off;"]
+
+# CMD [ "npm","Start" ]
 
